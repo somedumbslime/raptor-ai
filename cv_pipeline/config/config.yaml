@@ -1,0 +1,168 @@
+# Конфигурация End-to-End Pipeline для обучения YOLO модели детекции солдат
+
+# ========== ПУТИ ==========
+paths:
+  # Входная папка с видео (относительно корня проекта CV_drone)
+  # Или абсолютный путь: "C:/Users/sanek/OneDrive/Рабочий стол/projects/CV_drone/job_with_videos/downloaded_videos"
+  video_dir: "data/downloaded_videos"
+  
+  # Выходная папка для кадров (относительно папки rest)
+  frames_dir: "data/frames"
+  
+  # Папка для очищенных кадров (после удаления дубликатов)
+  clean_frames_dir: "data/clean_frames"
+  
+  # Папка для аннотаций
+  annotations_dir: "data/annotations"
+  
+  # Папка для датасета YOLO (train/val/test)
+  dataset_dir: "data/yolo_format_7583f"
+  
+  # Папка для сохранения моделей и экспериментов
+  output_dir: "outputs"
+  
+  # Папка для хранения обученных моделей с понятными именами
+  # Рекомендуется называть модели: model_YYYY-MM-DD_description.pt
+  # Например: model_2025-12-20_soldier_detection_v1.pt
+  models_dir: "models"
+
+# ========== ПРОЦЕСС 1: ПОДГОТОВКА ДАННЫХ ==========
+data_preparation:
+  # Параметры извлечения кадров из видео
+  video_processing:
+    # Частота извлечения кадров (кадров в секунду)
+    fps: 0.33  # 1 кадр каждые 3 секунды (1/3)
+    
+    # Поддерживаемые форматы видео
+    video_formats: [".mp4", ".mov", ".avi", ".mkv", ".MP4"]
+    
+    # Качество JPEG для сохранения кадров (1-100)
+    jpeg_quality: 95
+    
+  # Параметры удаления дубликатов
+  deduplication:
+    # Порог для perceptual hash (0 = только точные дубликаты, больше = более свободно)
+    hash_threshold: 5
+    
+    # Метод хеширования (phash, average_hash, dhash, whash)
+    hash_method: "phash"
+    
+    # Минимальный размер изображения для обработки (пикселей)
+    min_image_size: 32
+
+# ========== ПРОЦЕСС 2: АВТОМАТИЧЕСКАЯ РАЗМЕТКА ==========
+annotation:
+  # Предобученная модель для предварительной разметки
+  pretrained_model: "models/best.pt"  # или yolov8n.pt, yolo11s.pt и т.д.
+  
+  # Порог уверенности для детекций (0.0 - 1.0)
+  confidence_threshold: 0.25
+  
+  # Порог IoU для NMS
+  iou_threshold: 0.45
+  
+  # Класс для детекции (0 = person в COCO, можно указать свой)
+  # Если None - детектируются все классы
+  target_class: 0  # person в COCO dataset
+  
+  # Имя класса для сохранения (будет использоваться в YOLO датасете)
+  class_name: "soldier"
+  
+  # Создавать ли train/val/test split автоматически
+  auto_split: true
+  
+  # Пропорции разделения (train/val/test)
+  split_ratios:
+    train: 0.8
+    val: 0.1
+    test: 0.1
+  
+  # Random seed для воспроизводимости
+  split_seed: 42
+
+# ========== ПРОЦЕСС 3: ОБУЧЕНИЕ YOLO ==========
+training:
+  # Базовая модель YOLO
+  # Может быть:
+  # - Имя предобученной модели (yolo11n.pt, yolo11s.pt и т.д.)
+  # - Путь к своей обученной модели (outputs/training/yolo_training/weights/best.pt)
+  model: "yolo11n.pt"  # yolo11n, yolo11s, yolo11m, yolo11l, yolo11x
+  
+  # Дообучение существующей модели
+  resume_training:
+    # Включить ли дообучение (True) или обучение с нуля (False)
+    enabled: False
+    
+    # Путь к существующей модели для дообучения
+    # Если null, будет использоваться model выше
+    # Может быть:
+    # - "best.pt" - лучшая модель из предыдущего обучения
+    # - "last.pt" - последний чекпоинт (с состоянием оптимизатора, можно продолжить обучение)
+    # - Полный путь к конкретной модели
+    model_path: "models/best.pt"  # null, "best.pt", "last.pt", или "outputs/training/yolo_training/weights/best.pt"
+    
+    # Начать обучение с последнего состояния (resume=True в YOLO)
+    # Работает только если model_path указывает на last.pt или модель с сохраненным состоянием
+    # Если True - продолжится с той же эпохи, LR schedule и т.д.
+    # Если False - начнется с эпохи 0, но используя веса модели
+    resume_from_checkpoint: false
+    
+    # Настройки learning rate при дообучении (опционально)
+    # Если не указано, используется lr0 из основных настроек
+    # Может быть полезно использовать меньший LR для дообучения
+    fine_tune_lr0: null  # null или значение, например 0.001
+  
+  # YAML файл с конфигурацией датасета (будет создан автоматически)
+  data_yaml: "data/dataset/data.yaml"
+  
+  # Параметры обучения
+  epochs: 10
+  imgsz: 640
+  batch: 16
+  
+  # Устройство (cuda или cpu)
+  device: "cuda"
+  
+  # Оптимизация
+  workers: 8
+  cache: true  # Кеширование датасета в памяти/на диске
+  
+  # Learning rate
+  lr0: 0.01
+  lrf: 0.01
+  
+  # Augmentation
+  augment:
+    hsv_h: 0.015
+    hsv_s: 0.7
+    hsv_v: 0.4
+    degrees: 0.0
+    translate: 0.1
+    scale: 0.5
+    fliplr: 0.5
+    mosaic: 1.0
+    mixup: 0.2
+  
+  # Сохранение
+  save_period: 10  # Сохранять чекпоинты каждые N эпох
+  patience: 50  # Ранняя остановка
+  
+  # MLflow настройки
+  mlflow:
+    tracking_uri: "outputs/mlflow"  # Относительно папки rest (MLflow создаст папку автоматически)
+    experiment_name: "soldier_detection"
+    log_artifacts: true
+    log_images: true  # Логировать изображения с предсказаниями
+    log_model: true  # Логировать модель в MLflow
+
+# ========== ОБЩИЕ НАСТРОЙКИ ==========
+general:
+  # Уровень логирования (DEBUG, INFO, WARNING, ERROR)
+  log_level: "INFO"
+  
+  # Random seed для воспроизводимости
+  seed: 42
+  
+  # Количество потоков для CPU операций
+  num_threads: 8
+
