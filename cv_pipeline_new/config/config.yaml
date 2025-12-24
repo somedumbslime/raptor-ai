@@ -3,23 +3,30 @@
 # ========== ПУТИ ==========
 paths:
   # Входная папка с видео (относительно корня проекта CV_drone)
-  # Или абсолютный путь: "C:/Users/sanek/OneDrive/Рабочий стол/projects/CV_drone/job_with_videos/downloaded_videos"
-  video_dir: "data/downloaded_videos"
+  video_dir: "data/raw_data/downloaded_videos"
   
   # Выходная папка для кадров (относительно папки rest)
-  frames_dir: "data/frames"
+  frames_dir: "data/raw_data/raw_frames"
   
   # Папка для очищенных кадров (после удаления дубликатов)
-  clean_frames_dir: "data/clean_frames"
+  clean_frames_dir: "data/raw_data/clean_frames"
   
   # Папка для аннотаций
-  annotations_dir: "data/annotations"
+  annotations_dir: "data/raw_data/auto_annotations"
   
   # Папка для датасета YOLO (train/val/test)
-  dataset_dir: "data/yolo_format_5783f"
+  dataset_dir: "data/train_data"
   
   # Папка для сохранения моделей и экспериментов
   output_dir: "outputs"
+
+  test_dir: "data/test_data"
+
+  test_results: "data/test_results"
+
+  test_video_dir: 'data/test_videos'
+
+  test_video_results: 'data/test_video_results'
   
   # Папка для хранения обученных моделей с понятными именами
   # Рекомендуется называть модели: model_YYYY-MM-DD_description.pt
@@ -39,7 +46,7 @@ preprocess:
 
 # ========== ПРОЦЕСС 2: АВТОРАЗМЕТКА ==========
 annotation:
-  pretrained_model: "models/best.pt"
+  pretrained_model: "best.pt" # from models/
   confidence_threshold: 0.25
   iou_threshold: 0.45
   target_class: 0
@@ -54,9 +61,9 @@ split:
 
 # ========== ПРОЦЕСС 4: ОБУЧЕНИЕ YOLO ==========
 training:
-  model: "yolo11n.pt"
-  finetune_model: "models/best.pt"
-  epochs: 10
+  model: "yolo11n.pt" # from models/
+  finetune_model: "best.pt" # from models/
+  epochs: 2
   batch_size: 16
   num_workers: 2
   lr: 0.001
@@ -64,6 +71,14 @@ training:
   image_size: 640
   device: "cuda"
   save_every: 1
+
+predict:
+  model: "best_5783f.pt" # from models/
+  conf: 0.2
+  iou: 0.2
+  image_size: 640
+  device: "cuda"
+  tracker: "bytetrack.yaml"
 
 # ========== ОБЩИЕ НАСТРОЙКИ ==========
 general:

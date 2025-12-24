@@ -28,22 +28,13 @@ def load_config(config_path: str) -> Dict[str, Any]:
 
 
 def validate_config(config: Dict[str, Any]) -> bool:
-    """
-    Базовая валидация конфигурации
-    
-    Args:
-        config: Словарь с конфигурацией
-        
-    Returns:
-        True если конфигурация валидна
-    """
-    required_sections = ['paths', 'data_preparation', 'annotation', 'training']
-    
+    """Простейшая валидация конфигурации."""
+    required_sections = ['paths', 'preprocess', 'annotation', 'split', 'training']
+
     for section in required_sections:
         if section not in config:
             raise ValueError(f"Отсутствует обязательная секция конфигурации: {section}")
-    
-    logger.info("Конфигурация валидна")
+
     return True
 
 

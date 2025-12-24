@@ -151,3 +151,4 @@ def check_ffmpeg() -> bool:
         return result.returncode == 0
     except FileNotFoundError:
         return False
+
