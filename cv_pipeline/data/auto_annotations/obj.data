@@ -1,0 +1,4 @@
+classes = 1
+names = obj.names
+train = train.txt
+backup = backup/
