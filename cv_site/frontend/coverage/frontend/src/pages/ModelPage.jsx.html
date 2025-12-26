@@ -1,0 +1,604 @@
+
+<!doctype html>
+<html lang="en">
+
+<head>
+    <title>Code coverage report for frontend/src/pages/ModelPage.jsx</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../../prettify.css" />
+    <link rel="stylesheet" href="../../../base.css" />
+    <link rel="shortcut icon" type="image/x-icon" href="../../../favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+    
+<body>
+<div class='wrapper'>
+    <div class='pad1'>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">frontend/src/pages</a> ModelPage.jsx</h1>
+        <div class='clearfix'>
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Statements</span>
+                <span class='fraction'>172/172</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Branches</span>
+                <span class='fraction'>1/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Functions</span>
+                <span class='fraction'>1/1</span>
+            </div>
+        
+            
+            <div class='fl pad1y space-right2'>
+                <span class="strong">100% </span>
+                <span class="quiet">Lines</span>
+                <span class='fraction'>172/172</span>
+            </div>
+        
+            
+        </div>
+        <p class="quiet">
+            Press <em>n</em> or <em>j</em> to go to the next uncovered block, <em>b</em>, <em>p</em> or <em>k</em> for the previous block.
+        </p>
+        <template id="filterTemplate">
+            <div class="quiet">
+                Filter:
+                <input type="search" id="fileSearch">
+            </div>
+        </template>
+    </div>
+    <div class='status-line high'></div>
+    <pre><table class="coverage">
+<tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
+<a name='L2'></a><a href='#L2'>2</a>
+<a name='L3'></a><a href='#L3'>3</a>
+<a name='L4'></a><a href='#L4'>4</a>
+<a name='L5'></a><a href='#L5'>5</a>
+<a name='L6'></a><a href='#L6'>6</a>
+<a name='L7'></a><a href='#L7'>7</a>
+<a name='L8'></a><a href='#L8'>8</a>
+<a name='L9'></a><a href='#L9'>9</a>
+<a name='L10'></a><a href='#L10'>10</a>
+<a name='L11'></a><a href='#L11'>11</a>
+<a name='L12'></a><a href='#L12'>12</a>
+<a name='L13'></a><a href='#L13'>13</a>
+<a name='L14'></a><a href='#L14'>14</a>
+<a name='L15'></a><a href='#L15'>15</a>
+<a name='L16'></a><a href='#L16'>16</a>
+<a name='L17'></a><a href='#L17'>17</a>
+<a name='L18'></a><a href='#L18'>18</a>
+<a name='L19'></a><a href='#L19'>19</a>
+<a name='L20'></a><a href='#L20'>20</a>
+<a name='L21'></a><a href='#L21'>21</a>
+<a name='L22'></a><a href='#L22'>22</a>
+<a name='L23'></a><a href='#L23'>23</a>
+<a name='L24'></a><a href='#L24'>24</a>
+<a name='L25'></a><a href='#L25'>25</a>
+<a name='L26'></a><a href='#L26'>26</a>
+<a name='L27'></a><a href='#L27'>27</a>
+<a name='L28'></a><a href='#L28'>28</a>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a>
+<a name='L31'></a><a href='#L31'>31</a>
+<a name='L32'></a><a href='#L32'>32</a>
+<a name='L33'></a><a href='#L33'>33</a>
+<a name='L34'></a><a href='#L34'>34</a>
+<a name='L35'></a><a href='#L35'>35</a>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a>
+<a name='L45'></a><a href='#L45'>45</a>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a>
+<a name='L53'></a><a href='#L53'>53</a>
+<a name='L54'></a><a href='#L54'>54</a>
+<a name='L55'></a><a href='#L55'>55</a>
+<a name='L56'></a><a href='#L56'>56</a>
+<a name='L57'></a><a href='#L57'>57</a>
+<a name='L58'></a><a href='#L58'>58</a>
+<a name='L59'></a><a href='#L59'>59</a>
+<a name='L60'></a><a href='#L60'>60</a>
+<a name='L61'></a><a href='#L61'>61</a>
+<a name='L62'></a><a href='#L62'>62</a>
+<a name='L63'></a><a href='#L63'>63</a>
+<a name='L64'></a><a href='#L64'>64</a>
+<a name='L65'></a><a href='#L65'>65</a>
+<a name='L66'></a><a href='#L66'>66</a>
+<a name='L67'></a><a href='#L67'>67</a>
+<a name='L68'></a><a href='#L68'>68</a>
+<a name='L69'></a><a href='#L69'>69</a>
+<a name='L70'></a><a href='#L70'>70</a>
+<a name='L71'></a><a href='#L71'>71</a>
+<a name='L72'></a><a href='#L72'>72</a>
+<a name='L73'></a><a href='#L73'>73</a>
+<a name='L74'></a><a href='#L74'>74</a>
+<a name='L75'></a><a href='#L75'>75</a>
+<a name='L76'></a><a href='#L76'>76</a>
+<a name='L77'></a><a href='#L77'>77</a>
+<a name='L78'></a><a href='#L78'>78</a>
+<a name='L79'></a><a href='#L79'>79</a>
+<a name='L80'></a><a href='#L80'>80</a>
+<a name='L81'></a><a href='#L81'>81</a>
+<a name='L82'></a><a href='#L82'>82</a>
+<a name='L83'></a><a href='#L83'>83</a>
+<a name='L84'></a><a href='#L84'>84</a>
+<a name='L85'></a><a href='#L85'>85</a>
+<a name='L86'></a><a href='#L86'>86</a>
+<a name='L87'></a><a href='#L87'>87</a>
+<a name='L88'></a><a href='#L88'>88</a>
+<a name='L89'></a><a href='#L89'>89</a>
+<a name='L90'></a><a href='#L90'>90</a>
+<a name='L91'></a><a href='#L91'>91</a>
+<a name='L92'></a><a href='#L92'>92</a>
+<a name='L93'></a><a href='#L93'>93</a>
+<a name='L94'></a><a href='#L94'>94</a>
+<a name='L95'></a><a href='#L95'>95</a>
+<a name='L96'></a><a href='#L96'>96</a>
+<a name='L97'></a><a href='#L97'>97</a>
+<a name='L98'></a><a href='#L98'>98</a>
+<a name='L99'></a><a href='#L99'>99</a>
+<a name='L100'></a><a href='#L100'>100</a>
+<a name='L101'></a><a href='#L101'>101</a>
+<a name='L102'></a><a href='#L102'>102</a>
+<a name='L103'></a><a href='#L103'>103</a>
+<a name='L104'></a><a href='#L104'>104</a>
+<a name='L105'></a><a href='#L105'>105</a>
+<a name='L106'></a><a href='#L106'>106</a>
+<a name='L107'></a><a href='#L107'>107</a>
+<a name='L108'></a><a href='#L108'>108</a>
+<a name='L109'></a><a href='#L109'>109</a>
+<a name='L110'></a><a href='#L110'>110</a>
+<a name='L111'></a><a href='#L111'>111</a>
+<a name='L112'></a><a href='#L112'>112</a>
+<a name='L113'></a><a href='#L113'>113</a>
+<a name='L114'></a><a href='#L114'>114</a>
+<a name='L115'></a><a href='#L115'>115</a>
+<a name='L116'></a><a href='#L116'>116</a>
+<a name='L117'></a><a href='#L117'>117</a>
+<a name='L118'></a><a href='#L118'>118</a>
+<a name='L119'></a><a href='#L119'>119</a>
+<a name='L120'></a><a href='#L120'>120</a>
+<a name='L121'></a><a href='#L121'>121</a>
+<a name='L122'></a><a href='#L122'>122</a>
+<a name='L123'></a><a href='#L123'>123</a>
+<a name='L124'></a><a href='#L124'>124</a>
+<a name='L125'></a><a href='#L125'>125</a>
+<a name='L126'></a><a href='#L126'>126</a>
+<a name='L127'></a><a href='#L127'>127</a>
+<a name='L128'></a><a href='#L128'>128</a>
+<a name='L129'></a><a href='#L129'>129</a>
+<a name='L130'></a><a href='#L130'>130</a>
+<a name='L131'></a><a href='#L131'>131</a>
+<a name='L132'></a><a href='#L132'>132</a>
+<a name='L133'></a><a href='#L133'>133</a>
+<a name='L134'></a><a href='#L134'>134</a>
+<a name='L135'></a><a href='#L135'>135</a>
+<a name='L136'></a><a href='#L136'>136</a>
+<a name='L137'></a><a href='#L137'>137</a>
+<a name='L138'></a><a href='#L138'>138</a>
+<a name='L139'></a><a href='#L139'>139</a>
+<a name='L140'></a><a href='#L140'>140</a>
+<a name='L141'></a><a href='#L141'>141</a>
+<a name='L142'></a><a href='#L142'>142</a>
+<a name='L143'></a><a href='#L143'>143</a>
+<a name='L144'></a><a href='#L144'>144</a>
+<a name='L145'></a><a href='#L145'>145</a>
+<a name='L146'></a><a href='#L146'>146</a>
+<a name='L147'></a><a href='#L147'>147</a>
+<a name='L148'></a><a href='#L148'>148</a>
+<a name='L149'></a><a href='#L149'>149</a>
+<a name='L150'></a><a href='#L150'>150</a>
+<a name='L151'></a><a href='#L151'>151</a>
+<a name='L152'></a><a href='#L152'>152</a>
+<a name='L153'></a><a href='#L153'>153</a>
+<a name='L154'></a><a href='#L154'>154</a>
+<a name='L155'></a><a href='#L155'>155</a>
+<a name='L156'></a><a href='#L156'>156</a>
+<a name='L157'></a><a href='#L157'>157</a>
+<a name='L158'></a><a href='#L158'>158</a>
+<a name='L159'></a><a href='#L159'>159</a>
+<a name='L160'></a><a href='#L160'>160</a>
+<a name='L161'></a><a href='#L161'>161</a>
+<a name='L162'></a><a href='#L162'>162</a>
+<a name='L163'></a><a href='#L163'>163</a>
+<a name='L164'></a><a href='#L164'>164</a>
+<a name='L165'></a><a href='#L165'>165</a>
+<a name='L166'></a><a href='#L166'>166</a>
+<a name='L167'></a><a href='#L167'>167</a>
+<a name='L168'></a><a href='#L168'>168</a>
+<a name='L169'></a><a href='#L169'>169</a>
+<a name='L170'></a><a href='#L170'>170</a>
+<a name='L171'></a><a href='#L171'>171</a>
+<a name='L172'></a><a href='#L172'>172</a>
+<a name='L173'></a><a href='#L173'>173</a>
+<a name='L174'></a><a href='#L174'>174</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import BrandHeader from '../components/BrandHeader';
+import { useTranslation, Trans } from 'react-i18next';
+import raw1 from '../photos/raw_1.jpg';
+import detected1 from '../photos/detected_1.jpg';
+import raw2 from '../photos/raw_2.jpg';
+import detected2 from '../photos/detected_2.jpg';
+&nbsp;
+export default function ModelPage() {
+    const { t } = useTranslation();
+    return (
+        &lt;div className="flex flex-col items-center min-h-[60vh] w-full"&gt;
+            &lt;BrandHeader /&gt;
+            &lt;div className="w-full max-w-5xl mb-10"&gt;
+                &lt;div className="text-lg md:text-xl text-blue-100 leading-relaxed space-y-4"&gt;
+                    &lt;p&gt;
+                        &lt;span className="font-bold text-blue-400"&gt;{t('brand')}&lt;/span&gt; &lt;Trans i18nKey="brand_description" /&gt;
+                    &lt;/p&gt;
+                    &lt;p&gt;
+                        &lt;Trans i18nKey="current_model"&gt;
+                            На даний момент наша модель впевнено ідентифікує &lt;span className="font-bold text-green-300"&gt;солдатів&lt;/span&gt; на різних ландшафтах та за різної погоди. Модель оптимізована для швидкої роботи та інтеграції у системах моніторингу, аналізу БПЛА, ситуаційної обізнаності.
+                        &lt;/Trans&gt;
+                    &lt;/p&gt;
+                    &lt;p&gt;
+                        {t('future_classes')}
+                        &lt;ul className="mt-2 ml-6 space-y-1 list-none"&gt;
+                            &lt;li className="flex items-center gap-2"&gt;&lt;span className="inline-block w-2 h-2 rounded-full bg-blue-400"&gt;&lt;/span&gt;&lt;span className="text-blue-400 font-semibold"&gt;{t('class_civilian')}&lt;/span&gt;&lt;/li&gt;
+                            &lt;li className="flex items-center gap-2"&gt;&lt;span className="inline-block w-2 h-2 rounded-full bg-yellow-300"&gt;&lt;/span&gt;&lt;span className="text-yellow-300 font-semibold"&gt;{t('class_vehicle')}&lt;/span&gt;&lt;/li&gt;
+                            &lt;li className="flex items-center gap-2"&gt;&lt;span className="inline-block w-2 h-2 rounded-full bg-orange-400"&gt;&lt;/span&gt;&lt;span className="text-orange-400 font-semibold"&gt;{t('class_armor')}&lt;/span&gt;&lt;/li&gt;
+                            &lt;li className="flex items-center gap-2"&gt;&lt;span className="inline-block w-2 h-2 rounded-full bg-pink-400"&gt;&lt;/span&gt;&lt;span className="text-pink-400 font-semibold"&gt;{t('class_mrls')}&lt;/span&gt;&lt;/li&gt;
+                            &lt;li className="flex items-center gap-2"&gt;&lt;span className="inline-block w-2 h-2 rounded-full bg-red-400"&gt;&lt;/span&gt;&lt;span className="text-red-400 font-semibold"&gt;{t('class_aa')}&lt;/span&gt;&lt;/li&gt;
+                            &lt;li className="flex items-center gap-2"&gt;&lt;span className="inline-block w-2 h-2 rounded-full bg-teal-300"&gt;&lt;/span&gt;&lt;span className="text-teal-300 font-semibold"&gt;{t('class_heli')}&lt;/span&gt;&lt;/li&gt;
+                            &lt;li className="flex items-center gap-2"&gt;&lt;span className="inline-block w-2 h-2 rounded-full bg-purple-400"&gt;&lt;/span&gt;&lt;span className="text-purple-400 font-semibold"&gt;{t('class_plane')}&lt;/span&gt;&lt;/li&gt;
+                        &lt;/ul&gt;
+                    &lt;/p&gt;
+                    &lt;p&gt;
+                        &lt;span className="font-bold text-green-300"&gt;{t('ukr_context')}&lt;/span&gt;
+                    &lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className="px-6 pt-6 pb-2 text-left"&gt;
+                &lt;h3 className="text-2xl font-bold text-blue-300 mb-2"&gt;{t('model_params')}&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div className="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl overflow-hidden bg-gray-800 mb-8"&gt;
+                &lt;table className="w-full text-center"&gt;
+                    &lt;thead&gt;
+                        &lt;tr className="bg-gradient-to-r from-blue-900 via-gray-900 to-blue-900"&gt;
+                            &lt;th className="p-3 text-lg font-bold text-blue-200"&gt;{t('param')}&lt;/th&gt;
+                            &lt;th className="p-3 text-lg font-bold text-blue-200"&gt;{t('value')}&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr className="bg-gray-900/30 hover:bg-blue-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-blue-100"&gt;{t('param_arch')}&lt;/td&gt;
+                            &lt;td className="p-2 text-blue-50 text-left"&gt;YOLO12s, 9.4M parameters&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-800/60 hover:bg-blue-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-blue-100"&gt;{t('param_task')}&lt;/td&gt;
+                            &lt;td className="p-2 text-blue-50 text-left"&gt;{t('task_detection')}&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-900/30 hover:bg-blue-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-blue-100"&gt;{t('param_classes')}&lt;/td&gt;
+                            &lt;td className="p-2 text-blue-50 text-left"&gt;1 (soldier)&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-800/60 hover:bg-blue-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-blue-100"&gt;{t('param_input')}&lt;/td&gt;
+                            &lt;td className="p-2 text-blue-50 text-left"&gt;640×640&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-900/30 hover:bg-blue-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-blue-100"&gt;{t('param_amp')}&lt;/td&gt;
+                            &lt;td className="p-2 text-blue-50 text-left"&gt;{t('amp_on')}&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-800/60 hover:bg-blue-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-blue-100"&gt;{t('param_video')}&lt;/td&gt;
+                            &lt;td className="p-2 text-blue-50 text-left"&gt;{t('video_supported')}&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-900/30 hover:bg-blue-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-blue-100"&gt;{t('param_recommend')}&lt;/td&gt;
+                            &lt;td className="p-2 text-blue-50 text-left"&gt;{t('recommend_conf')}&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-800/60 hover:bg-blue-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-blue-100"&gt;{t('param_formats')}&lt;/td&gt;
+                            &lt;td className="p-2 text-blue-50 text-left"&gt;{t('formats')}&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;div className="px-6 pt-6 pb-2 text-left"&gt;
+                &lt;h3 className="text-2xl font-bold text-green-300 mb-2"&gt;{t('metrics')}&lt;/h3&gt;
+            &lt;/div&gt;
+            &lt;div className="w-full max-w-2xl mx-auto rounded-2xl shadow-2xl overflow-hidden bg-gray-800 mt-2 mb-12"&gt;
+                &lt;table className="w-full text-center"&gt;
+                    &lt;thead&gt;
+                        &lt;tr className="bg-gradient-to-r from-green-900 via-gray-900 to-green-900"&gt;
+                            &lt;th className="p-3 text-lg font-bold text-green-200 tracking-wide"&gt;{t('metric')}&lt;/th&gt;
+                            &lt;th className="p-3 text-lg font-bold text-green-200 tracking-wide"&gt;{t('value')}&lt;/th&gt;
+                        &lt;/tr&gt;
+                    &lt;/thead&gt;
+                    &lt;tbody&gt;
+                        &lt;tr className="bg-gray-900/30 hover:bg-green-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-green-100"&gt;{t('precision')}&lt;/td&gt;
+                            &lt;td className="p-2 text-green-50 text-left font-mono text-lg"&gt;0.712&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-800/60 hover:bg-green-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-green-100"&gt;{t('recall')}&lt;/td&gt;
+                            &lt;td className="p-2 text-green-50 text-left font-mono text-lg"&gt;0.576&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-900/30 hover:bg-green-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-green-100"&gt;{t('map50')}&lt;/td&gt;
+                            &lt;td className="p-2 text-green-50 text-left font-mono text-lg"&gt;0.621&lt;/td&gt;
+                        &lt;/tr&gt;
+                        &lt;tr className="bg-gray-800/60 hover:bg-green-900/30 transition-colors"&gt;
+                            &lt;td className="p-2 font-semibold text-left text-green-100"&gt;{t('map50_95')}&lt;/td&gt;
+                            &lt;td className="p-2 text-green-50 text-left font-mono text-lg"&gt;0.334&lt;/td&gt;
+                        &lt;/tr&gt;
+                    &lt;/tbody&gt;
+                &lt;/table&gt;
+            &lt;/div&gt;
+            &lt;div className="w-full max-w-5xl mx-auto mt-16"&gt;
+                &lt;h3 className="text-2xl font-bold text-blue-400 mb-6 text-center"&gt;{t('examples')}&lt;/h3&gt;
+                &lt;div className="flex flex-col gap-12 items-center"&gt;
+                    &lt;div className="w-full max-w-3xl flex flex-col md:flex-row items-center bg-gray-800 rounded-3xl shadow-xl overflow-hidden"&gt;
+                        &lt;div className="flex-1 flex flex-col items-center p-6"&gt;
+                            &lt;span className="text-blue-300 font-semibold mb-2 text-xl"&gt;{t('before')}&lt;/span&gt;
+                            &lt;img src={raw1} alt="raw_1" className="rounded-xl w-full max-w-md object-contain shadow-md" /&gt;
+                        &lt;/div&gt;
+                        &lt;div className="flex-1 flex flex-col items-center p-6 border-t md:border-t-0 md:border-l border-gray-700"&gt;
+                            &lt;span className="text-green-300 font-semibold mb-2 text-xl"&gt;{t('after')}&lt;/span&gt;
+                            &lt;img src={detected1} alt="detected_1" className="rounded-xl w-full max-w-md object-contain shadow-md" /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;div className="w-full max-w-3xl flex flex-col md:flex-row items-center bg-gray-800 rounded-3xl shadow-xl overflow-hidden"&gt;
+                        &lt;div className="flex-1 flex flex-col items-center p-6"&gt;
+                            &lt;span className="text-blue-300 font-semibold mb-2 text-xl"&gt;{t('before')}&lt;/span&gt;
+                            &lt;img src={raw2} alt="raw_2" className="rounded-xl w-full max-w-md object-contain shadow-md" /&gt;
+                        &lt;/div&gt;
+                        &lt;div className="flex-1 flex flex-col items-center p-6 border-t md:border-t-0 md:border-l border-gray-700"&gt;
+                            &lt;span className="text-green-300 font-semibold mb-2 text-xl"&gt;{t('after')}&lt;/span&gt;
+                            &lt;img src={detected2} alt="detected_2" className="rounded-xl w-full max-w-md object-contain shadow-md" /&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div className="w-full max-w-4xl mx-auto mt-20 mb-10"&gt;
+                &lt;h3 className="text-2xl font-bold text-green-400 mb-8 text-center"&gt;{t('advantages')}&lt;/h3&gt;
+                &lt;ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8"&gt;
+                    &lt;li className="flex items-center gap-4 bg-gray-800 rounded-2xl shadow-lg p-6"&gt;
+                        &lt;span className="text-3xl"&gt;⚡&lt;/span&gt;
+                        &lt;span className="text-lg font-semibold text-blue-100"&gt;{t('adv_speed')}&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li className="flex items-center gap-4 bg-gray-800 rounded-2xl shadow-lg p-6"&gt;
+                        &lt;span className="text-3xl"&gt;🎥&lt;/span&gt;
+                        &lt;span className="text-lg font-semibold text-blue-100"&gt;{t('adv_video')}&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li className="flex items-center gap-4 bg-gray-800 rounded-2xl shadow-lg p-6"&gt;
+                        &lt;span className="text-3xl"&gt;🇺🇦&lt;/span&gt;
+                        &lt;span className="text-lg font-semibold text-blue-100"&gt;{t('adv_ua')}&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li className="flex items-center gap-4 bg-gray-800 rounded-2xl shadow-lg p-6"&gt;
+                        &lt;span className="text-3xl"&gt;🔌&lt;/span&gt;
+                        &lt;span className="text-lg font-semibold text-blue-100"&gt;{t('adv_easy')}&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li className="flex items-center gap-4 bg-gray-800 rounded-2xl shadow-lg p-6"&gt;
+                        &lt;span className="text-3xl"&gt;💾&lt;/span&gt;
+                        &lt;span className="text-lg font-semibold text-blue-100"&gt;{t('adv_formats')}&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li className="flex items-center gap-4 bg-gray-800 rounded-2xl shadow-lg p-6"&gt;
+                        &lt;span className="text-3xl"&gt;🌐&lt;/span&gt;
+                        &lt;span className="text-lg font-semibold text-blue-100"&gt;{t('adv_open')}&lt;/span&gt;
+                    &lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    );
+} </pre></td></tr></table></pre>
+
+                <div class='push'></div><!-- for sticky footer -->
+            </div><!-- /wrapper -->
+            <div class='footer quiet pad2 space-top1 center small'>
+                Code coverage generated by
+                <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
+                at 2025-07-09T08:53:31.959Z
+            </div>
+        <script src="../../../prettify.js"></script>
+        <script>
+            window.onload = function () {
+                prettyPrint();
+            };
+        </script>
+        <script src="../../../sorter.js"></script>
+        <script src="../../../block-navigation.js"></script>
+    </body>
+</html>
+    

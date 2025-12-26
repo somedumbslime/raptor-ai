@@ -4,3 +4,7 @@ python-multipart
 opencv-python
 numpy
 onnxruntime
+python-jose[cryptography]
+python-dotenv
+requests
+Pillow>=11.3.0

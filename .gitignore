@@ -4,3 +4,6 @@
 *.mp4
 *.mow
 *.txt
+*.onnx
+cv_site/backend/models/*.pt
+cv_site/backend/models/*.onnx
