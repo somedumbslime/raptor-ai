@@ -57,8 +57,8 @@ cv_pipeline/data/test_results/*
 # Outputs/uploads
 outputs/*
 uploads/*
-backend/outputs/*
-backend/uploads/*
+cv_site/backend/outputs/*
+cv_site/backend/uploads/*
 
 # Images
 *.jpg
@@ -67,6 +67,7 @@ backend/uploads/*
 *.webp
 
 # TXT
+!requirements.txt
 !cv_site/backend/requirements.txt
 !cv_site/frontend/package-lock.json
 !cv_site/frontend/package.json

@@ -41,14 +41,18 @@ backend/model/
 *.ckpt
 
 # Outputs/uploads
-backend/outputs/
-backend/uploads/
+backend/outputs/*
+backend/uploads/*
 
 # Images
 *.jpg
 *.jpeg
 *.png
 *.webp
+
+!requirements.txt
+!package-lock.json
+!package.json
 
 # Virtual Environments
 backend/venv/
