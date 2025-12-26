@@ -1,4 +1,4 @@
-export const API_URL = "https://192.168.1.100:5173";
+export const API_URL = import.meta.env.VITE_API_URL || "http://localhost:8000";
 
 function handleApiError(res) {
     return res.text().then(text => {

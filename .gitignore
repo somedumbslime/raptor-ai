@@ -1,9 +1,77 @@
-*.jpg
-*.png
+# Node.js/Frontend
+node_modules/
+dist/
+dist-ssr/
+*.local
+
+# Python/Backend
+__pycache__/
+*.pyc
+venv/
+env/
+.venv/
+.env/
+
+# VSCode/IDE
+.vscode/
+.idea/
+.DS_Store
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Env files
+.env
+.env.*
+**/.env
+**/.env.*
+
+# Model files and large binaries
 *.pt
-*.mp4
-*.mow
-*.txt
 *.onnx
-cv_site/backend/models/*.pt
-cv_site/backend/models/*.onnx
+*.mp4
+*.avi
+*.mkv
+*.webm
+*.mov
+*.h5
+*.ckpt
+models/*
+backend/models/*
+cv_pipeline/models/*
+cv_pipeline/data/curr_data/*
+cv_pipeline/data/raw_data/downloaded_videos/*
+cv_pipeline/data/raw_data/raw_frames/*
+cv_pipeline/data/auto_annotations/*
+cv_pipeline/data/test_videos/*
+cv_pipeline/data/test_video_results/*
+cv_pipeline/data/test_data/*
+cv_pipeline/data/test_results/*
+
+# Outputs/uploads
+outputs/*
+uploads/*
+backend/outputs/*
+backend/uploads/*
+
+# Images
+*.jpg
+*.jpeg
+*.png
+*.webp
+
+# TXT
+!cv_site/backend/requirements.txt
+!cv_site/frontend/package-lock.json
+!cv_site/frontend/package.json
+*.txt
+.txt
+
+# System
+Thumbs.db

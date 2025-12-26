@@ -44,11 +44,17 @@ backend/model/
 backend/outputs/
 backend/uploads/
 
-# Images (если не нужны в репозитории)
-# *.jpg
-# *.jpeg
-# *.png
-# *.webp
+# Images
+*.jpg
+*.jpeg
+*.png
+*.webp
+
+# Virtual Environments
+backend/venv/
+backend/env/
+venv/
+env/
 
 # System
-Thumbs.db 
+Thumbs.db

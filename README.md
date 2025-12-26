@@ -78,12 +78,75 @@ full_cv_drone/
 4. Лучшая модель сохранится в `cv_pipeline/outputs/train_.../weights/best.pt`.
 
 ### Шаг 2: Запуск веб-интерфейса
-
 1. **Backend**:
+!!!
+Проект **в разработке**, в данный момент он **не поддерживает** работу с ONNX, поэтому **используем** PyTorch.
+Также в бекенде **много заглушек**, которые со временем будут удалены. Сейчас он **поддерживает** только одну модель.
+
+Приступаем:
+
+Прежде всего откройте backend/main.py
+
+В блоке:
+
+```bash
+# --- CORS ---
+app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[
+        "http://localhost:5173",
+        "http://ваш-домен",
+    ],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+```
+
+Добавьте в список `allow_origins` ваш IP-адрес
+(вы можете узнать его, например, через команду `ipconfig` в Windows или во время запуска фронтенда чуть дальше).
+
+По умолчанию `http://localhost:5173` должен работать, но все же.
+
+Затем в блоке:
+
+```bash
+MODEL_PATHS = {
+    "nano": "models/model_nano.pt",
+    "small": "models/model_small.pt",
+    "medium": "models/model_medium.pt",
+    "large": "models/model_large.pt",
+}
+```
+
+Измените необходимую модель на конкретное название вашей модели в папке `cv_site/backend/models/`.
+!!!
+**Временно внедрен блок, именно тут меняйте свою модель:**
+
+```bash
+PT_MODELS = {
+    "small": PTDetector("models/model_small.pt"),
+    # Можно добавить другие модели, если потребуется
+}
+```
+
+
+
 ```bash
 cd cv_site/backend
-# Скопируйте обученную модель в папку model/
-python main.py
+# Скопируйте обученную модель в папку models/
+# Если папки models нету, создайте её
+
+# проверьте наличие виртуального окружения (я использую conda, вы можете использовать venv)
+# python -m venv venv
+# venv\Scripts\activate
+pip install -r requirements.txt
+
+# запуск бекенда
+uvicorn main:app --reload
+# или (доступен по всем устройствам в локальной сети W-Fi)
+uvicorn main:app --host 0.0.0.0 --port 8000 --reload
 
 ```
 
@@ -91,9 +154,12 @@ python main.py
 2. **Frontend**:
 ```bash
 cd cv_site/frontend
+# установка зависимостей
 npm install
+# запуск фронтенда
 npm run dev
-
+# или (доступен по всем устройствам в локальной сети W-Fi)
+npm run dev -- --host 0.0.0.0 --port 5173
 ```
 
 

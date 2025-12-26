@@ -92,11 +92,6 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "http://127.0.0.1:5173",
-        "http://192.168.0.110:5173",
-        "https://192.168.0.110:5173",
-        "http://192.168.1.100:5173",
-        "https://192.168.1.100:5173"
         "https://ваш-домен",
     ],
     allow_credentials=True,

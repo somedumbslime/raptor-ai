@@ -97,7 +97,7 @@ uvicorn main:app --reload
 
 ```sh
 cd backend
-uvicorn uvicorn main:app --host 0.0.0.0 --port 8000 --ssl-keyfile=../frontend/certs/localhost-key.pem --ssl-certfile=../frontend/certs/localhost.pem
+uvicorn main:app --host 0.0.0.0 --port 8000 --ssl-keyfile=../frontend/certs/localhost-key.pem --ssl-certfile=../frontend/certs/localhost.pem
 ```
 
 #### Frontend

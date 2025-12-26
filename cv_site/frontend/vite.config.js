@@ -8,9 +8,5 @@ export default defineConfig({
   plugins: [react(), svgr()],
   server: {
     host: true,
-    https: {
-      key: fs.readFileSync('./certs/localhost-key.pem'),
-      cert: fs.readFileSync('./certs/localhost.pem'),
-    },
   },
 })
